@@ -204,7 +204,6 @@
 
   <script>
     const TRAILQUEST_APP_URL = 'https://script.google.com/macros/s/AKfycbzyClkWyQVQ02ZiNGvynT6XHg1f-wboKjtXDjmPO-jP4gWiBSUBia5WUrnfZa4KYO9e/exec';
-    const REDIRECT_DELAY_MS = 650;
 
     const launchLink = document.getElementById('launchLink');
     const statusText = document.getElementById('statusText');
@@ -216,9 +215,7 @@
 
     if (isConfigured(TRAILQUEST_APP_URL)) {
       launchLink.href = TRAILQUEST_APP_URL;
-      window.setTimeout(() => {
-        window.location.replace(TRAILQUEST_APP_URL);
-      }, REDIRECT_DELAY_MS);
+      window.location.replace(TRAILQUEST_APP_URL);
     } else {
       launchLink.removeAttribute('href');
       launchLink.setAttribute('aria-disabled', 'true');
