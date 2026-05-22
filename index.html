@@ -5,6 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="robots" content="noindex">
   <title>TrailQuest</title>
+  <script>
+    const TRAILQUEST_APP_URL = 'https://script.google.com/macros/s/AKfycbzyClkWyQVQ02ZiNGvynT6XHg1f-wboKjtXDjmPO-jP4gWiBSUBia5WUrnfZa4KYO9e/exec';
+
+    function isConfigured(url) {
+      return /^https:\/\/script\.google\.com\/macros\/s\/.+\/exec(?:[?#].*)?$/.test(url);
+    }
+
+    if (isConfigured(TRAILQUEST_APP_URL)) {
+      window.location.replace(TRAILQUEST_APP_URL);
+    }
+  </script>
   <style>
     :root {
       --bg-main: #6b8a63;
@@ -203,19 +214,12 @@
   </main>
 
   <script>
-    const TRAILQUEST_APP_URL = 'https://script.google.com/macros/s/AKfycbzyClkWyQVQ02ZiNGvynT6XHg1f-wboKjtXDjmPO-jP4gWiBSUBia5WUrnfZa4KYO9e/exec';
-
     const launchLink = document.getElementById('launchLink');
     const statusText = document.getElementById('statusText');
     const setupNote = document.getElementById('setupNote');
 
-    function isConfigured(url) {
-      return /^https:\/\/script\.google\.com\/macros\/s\/.+\/exec(?:[?#].*)?$/.test(url);
-    }
-
     if (isConfigured(TRAILQUEST_APP_URL)) {
       launchLink.href = TRAILQUEST_APP_URL;
-      window.location.replace(TRAILQUEST_APP_URL);
     } else {
       launchLink.removeAttribute('href');
       launchLink.setAttribute('aria-disabled', 'true');
